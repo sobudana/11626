@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birthday Puzzle</title>
+</head>
+
+<body>
+
+    <h1>ACCESS RESTRICTED</h1>
+
+    <p>Enter the recovery code:</p>
+
+    <input id="answer">
+
+    <button onclick="checkAnswer()">Submit</button>
+
+    <p id="result"></p>
+
+    <div id="secret" style="display:none;">
+        <h2>Evidence Package #1</h2>
+        <a href="C:\Users\PRATAMESH\Downloads\Untitled drawing (21).png">Open Evidence Package</a>
+    </div>
+
+    <script>
+        function checkAnswer() {
+
+            let answer =
+                document.getElementById("answer").value;
+
+            if (answer.toLowerCase() === "apple") {
+
+                document.getElementById("result").innerText =
+                    "ACCESS GRANTED";
+
+                document.getElementById("secret").style.display =
+                    "block";
+            }
+
+            else {
+
+                document.getElementById("result").innerText =
+                    "ACCESS DENIED";
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
