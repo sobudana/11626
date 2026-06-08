@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birthday Puzzle</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-y: auto;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+	<pre style="font-size=2vw;"> the greatest fear in the world is the fear of being betrayed by the ones you trust the most. no human can ever be completely immune to this fear. the only way to battle it is to pretend it doesn't exist, but there will always be the threat of being ambushed lingering in your mind.
+
+in the original manga 'death note' by tsugumi ohba, there is a scene where l lawliet washes light yagami's feet. it is commonly accepted that this was a reference to the biblical scene where jesus washes judas iscariot's feet, while having the complete knowledge that judas is the one who will soon betray him. the ohba's intent is seemingly to show that l is now completely sure of light being the kira. he is also sure of the fact that it is now indeed too late, he has the lower hand, no one will now believe in the possibility of light being the kira. he is also sure of the fact that the way things are going, light will soon kill him and he can do nothing to stop it. in that particular scene, l has practically accepted his defeat against light, now being over 80% sure of him being the kira.
+
+in the final scene of l's death, l is not shocked to see light smiling, he predicted it, he knew that light is the reason he's dying, and yet, there is nothing that he can do. l's face, in that particular scene, portrays his helplessness, but also his partial satisfaction from having the complete knowledge prior to it being made obvious to him
+
+
+you already know the answer, don't you?
+</pre>
+
+<input id="answer">
+
+    <button style="font-size: 1vw;" onclick="checkAnswer()">Submit</button>
+
+    <p id="result"></p>
+
+    <div id="secret" style="display:none;">
+        <a href="images/Untitled drawing (21).png">next level, goodluck
+         </a>
+    </div>
+
+    <script>
+        function checkAnswer() {
+
+            let answer =
+                document.getElementById("answer").value;
+
+            if (answer.toLowerCase() === "labubu") {
+
+                document.getElementById("result").innerText =
+                    "CORRECT, congrats";
+
+                document.getElementById("secret").style.display =
+                    "block";
+            }
+
+            else {
+
+                document.getElementById("result").innerText =
+                    "no not that";
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
