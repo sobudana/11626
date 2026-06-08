@@ -20,19 +20,20 @@
 
 <body>
 
-    <h1 style="font-size: 6vw;">ACCESS RESTRICTED</h1>
+    <p style="font-size: 4vw;">yes i've made a website again, but no, we're not travelling down the memory lane this time. goodluck.</p>
 
-    <p style="font-size: 5vw;">Enter the recovery code:</p>
+    <p style="font-size: 4vw;">to start, i want you to tell me the city this image is from:</p>
+
+    <img src="images/sea.jpg" />
 
     <input id="answer">
 
-    <button style="font-size: 2vw;" onclick="checkAnswer()">Submit</button>
+    <button style="font-size: 1vw;" onclick="checkAnswer()">Submit</button>
 
     <p id="result"></p>
 
     <div id="secret" style="display:none;">
-        <h2>Evidence Package #1</h2>
-        <a href="images/Untitled drawing (21).png">Open Evidence Package</a>
+        <a href="images/Untitled drawing (21).png">next level</a>
     </div>
 
     <script>
@@ -41,10 +42,10 @@
             let answer =
                 document.getElementById("answer").value;
 
-            if (answer.toLowerCase() === "apple") {
+            if (answer.toLowerCase() === "puri") {
 
                 document.getElementById("result").innerText =
-                    "ACCESS GRANTED";
+                    "CORRECT, congrats";
 
                 document.getElementById("secret").style.display =
                     "block";
@@ -53,7 +54,7 @@
             else {
 
                 document.getElementById("result").innerText =
-                    "ACCESS DENIED";
+                    "no not that";
 
             }
         }
