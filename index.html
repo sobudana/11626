@@ -21,24 +21,90 @@
 
 <body>
 
-    <p style="font-size: 4vw;">yes i've made a website again, but no, we're not travelling down the memory lane this time. goodluck.</p>
+    <p id="line1" style="font-size:4vw;"></p>
 
-    <p style="font-size: 4vw;">to start, i want you to tell me the city this image is from:</p>
+    <p id="line2" style="font-size:4vw;"></p>
 
-    <img src="images/sea.jpg" width="640px" height="481px">
+    <div id="content" style="display:none;">
 
-    <input id="answer">
+        <img src="images/sea.jpg" width="640" height="481">
 
-    <button style="font-size: 1vw;" onclick="checkAnswer()">Submit</button>
+        <br>
 
-    <p id="result"></p>
+        <input id="answer">
 
-    <div id="secret" style="display:none;">
-        <a href="l2.html">next level, goodluck
-         </a>
+        <button onclick="checkAnswer()">Submit</button>
+
+        <p id="result"></p>
+
+        <div id="secret" style="display:none;">
+            <a href="l2.html">next level, goodluck</a>
+        </div>
+
     </div>
 
     <script>
+
+        const text1 =
+            "yes i've made a website again, but no, we're not travelling down the memory lane this time. goodluck.";
+
+        const text2 =
+            "to start, i want you to tell me the city this image is from:";
+
+        let i = 0;
+        let j = 0;
+
+        function typeLine1() {
+
+            if (i < text1.length) {
+
+                document.getElementById("line1").innerHTML += text1.charAt(i);
+
+                i++;
+
+                setTimeout(typeLine1, 30);
+
+            }
+
+            else {
+
+                document.getElementById("line1").innerHTML +=
+                    '<span class="cursor">█</span>';
+
+                setTimeout(typeLine2, 500);
+            }
+        }
+
+        function typeLine2() {
+
+            if (j < text2.length) {
+
+                document.getElementById("line2").innerHTML += text2.charAt(j);
+
+                j++;
+
+                setTimeout(typeLine2, 30);
+
+            }
+
+            else {
+
+                document.getElementById("line2").innerHTML +=
+                    '<span class="cursor">█</span>';
+
+                setTimeout(() => {
+
+                    document.getElementById("content").style.display = "block";
+
+                    document.getElementById("answer").focus();
+
+                }, 500);
+
+            }
+        }
+
+        window.onload = typeLine1;
+
         function checkAnswer() {
 
             let answer =
@@ -57,9 +123,9 @@
 
                 document.getElementById("result").innerText =
                     "no not that";
-
             }
         }
+
     </script>
 
 </body>
