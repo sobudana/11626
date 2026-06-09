@@ -2,54 +2,58 @@
 <html>
 
 <head>
-    <title>Birthday Puzzle</title>
+    <title>Teddy</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <p id="line1" style="font-size:4vw;"></p>
+    <div id="message"></div>
 
-    <div id="content" style="display:none;">
+    <img id="teddy" src="images/teddy.jpeg">
 
-        <img src="images/teddy.jpeg" width="640" height="481">
-
-        <br>
-
-        <button onclick="window.location.href='l2.html'">
-         thank you teddy
-        </button>
-
-    </div>
+    <button id="nextButton"
+        onclick="window.location.href='l2.html'">
+        thank you teddy
+    </button>
 
     <script>
 
-        const text1 =
-            "way to go, you solved two. to congratulate you, here's teddy. he wished you goodluck for the remaining puzzle";
+        const text =
+            "congrats on solving the first two. here's teddy to wish you luck for the remaining puzzles.";
 
         let i = 0;
 
-        function typeLine1() {
+        function typeWriter() {
 
-            if (i < text1.length) {
+            if (i < text.length) {
 
-                document.getElementById("line1").innerHTML += text1.charAt(i);
+                document.getElementById("message").innerHTML +=
+                    text.charAt(i);
 
                 i++;
 
-                setTimeout(typeLine1, 30);
+                setTimeout(typeWriter, 35);
 
-            }
+            } else {
 
-            else {
+                document.getElementById("message").innerHTML +=
+                    '<span class="cursor">_</span>';
 
-                document.getElementById("line1").innerHTML +=
-                    '<span class="cursor">|</span>';
+                setTimeout(() => {
+
+                    document.getElementById("teddy").style.display =
+                        "block";
+
+                    document.getElementById("nextButton").style.display =
+                        "block";
+
+                }, 700);
             }
         }
 
-        window.onload = typeLine1;
-        }
+        window.onload = typeWriter;
 
     </script>
 
