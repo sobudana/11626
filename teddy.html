@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birthday Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <p id="line1" style="font-size:4vw;"></p>
+
+    <div id="content" style="display:none;">
+
+        <img src="images/teddy.jpeg" width="640" height="481">
+
+        <br>
+
+        <button onclick="window.location.href='l2.html'">
+         thank you teddy
+        </button>
+
+    </div>
+
+    <script>
+
+        const text1 =
+            "way to go, you solved two. to congratulate you, here's teddy. he wished you goodluck for the remaining puzzle";
+
+        let i = 0;
+
+        function typeLine1() {
+
+            if (i < text1.length) {
+
+                document.getElementById("line1").innerHTML += text1.charAt(i);
+
+                i++;
+
+                setTimeout(typeLine1, 30);
+
+            }
+
+            else {
+
+                document.getElementById("line1").innerHTML +=
+                    '<span class="cursor">|</span>';
+            }
+        }
+
+        window.onload = typeLine1;
+        }
+
+    </script>
+
+</body>
+
+</html>
