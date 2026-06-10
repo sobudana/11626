@@ -9,7 +9,9 @@
 
 <body>
 
-    <div id="secret" style="font-size:2rem;"></div>
+    <div id="message" style="font-size:2rem;"></div>
+
+    <div id="content" style="display:none;">
 
         <input id="answer">
 
@@ -20,11 +22,13 @@
         <p id="result"></p>
 
         <div id="secret" style="display:none; font-size:2rem;">
+
             <p>I love you Cixin!!</p>
 
             <a href="images/sea.jpg">
                 here's your gift (fr this time)
             </a>
+
         </div>
 
     </div>
@@ -61,9 +65,12 @@
                     document.getElementById("content").style.display =
                         "block";
 
+                    document.getElementById("answer").focus();
+
                 }, 800);
 
             }
+
         }
 
         window.onload = typeWriter;
@@ -76,7 +83,7 @@
             if (answer.toUpperCase() === "ILYCIXIN") {
 
                 document.getElementById("result").innerText =
-                    "";
+                    "correct!";
 
                 document.getElementById("secret").style.display =
                     "block";
