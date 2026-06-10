@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Final Boss</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="message" style="font-size:2rem;"></div>
+
+    <div id="content" style="display:none;">
+
+        <p style="font-size:1.3rem; width:90%; max-width:900px;">
+            you have solved the puzzles, now i want you to enter the code which was shared on each page of the puzzle, enter it in order
+        </p>
+
+        <input id="answer">
+
+        <button onclick="checkAnswer()">
+            Submit
+        </button>
+
+        <p id="result"></p>
+
+        <div id="secret" style="display:none;">
+            <p>i love you cixin!!</p>
+
+            <a href="images/sea.jpg">
+                here's your gift (fr this time)
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+
+        const introText =
+            "haha, i lied.\n\nthere is one last puzzle.";
+
+        let i = 0;
+
+        function typeWriter() {
+
+            if (i < introText.length) {
+
+                document.getElementById("message").innerHTML +=
+                    introText.charAt(i) === "\n"
+                    ? "<br>"
+                    : introText.charAt(i);
+
+                i++;
+
+                setTimeout(typeWriter, 35);
+
+            }
+
+            else {
+
+                document.getElementById("message").innerHTML +=
+                    '<span class="cursor">_</span>';
+
+                setTimeout(() => {
+
+                    document.getElementById("content").style.display =
+                        "block";
+
+                }, 800);
+
+            }
+        }
+
+        window.onload = typeWriter;
+
+        function checkAnswer() {
+
+            let answer =
+                document.getElementById("answer").value;
+
+            if (answer.toUpperCase() === "ILYCIXIN") {
+
+                document.getElementById("result").innerText =
+                    "";
+
+                document.getElementById("secret").style.display =
+                    "block";
+
+            }
+
+            else {
+
+                document.getElementById("result").innerText =
+                    "incorrect";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
