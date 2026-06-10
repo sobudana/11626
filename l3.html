@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Birthday Puzzle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <p id="line1" style="font-size:4vw;"></p>
+
+    <p id="line2" style="font-size:4vw;"></p>
+
+    <div id="content" style="display:none;">
+
+        <img src="images/sea.jpg" width="640" height="481">
+
+        <br>
+
+        <input id="answer">
+
+        <button onclick="checkAnswer()">Submit</button>
+
+        <p id="result"></p>
+
+        <div id="secret" style="display:none;">
+            <a href="l2.html">final level, goodluck</a>
+        </div>
+
+    </div>
+
+    <script>
+
+        const text1 =
+            "this level needs you to solve maths, or perhaps remember the answer if you do";
+
+        const text2 =
+            "here is your question";
+
+        let i = 0;
+        let j = 0;
+
+        function typeLine1() {
+
+            if (i < text1.length) {
+
+                document.getElementById("line1").innerHTML += text1.charAt(i);
+
+                i++;
+
+                setTimeout(typeLine1, 30);
+
+            }
+
+            else {
+
+                document.getElementById("line1").innerHTML +=
+                    '<span class="cursor">|</span>';
+
+                setTimeout(typeLine2, 500);
+            }
+        }
+
+        function typeLine2() {
+
+            if (j < text2.length) {
+
+                document.getElementById("line2").innerHTML += text2.charAt(j);
+
+                j++;
+
+                setTimeout(typeLine2, 30);
+
+            }
+
+            else {
+
+                document.getElementById("line2").innerHTML +=
+                    '<span class="cursor">|</span>';
+
+                setTimeout(() => {
+
+                    document.getElementById("content").style.display = "block";
+
+                    document.getElementById("answer").focus();
+
+                }, 500);
+
+            }
+        }
+
+        window.onload = typeLine1;
+
+        function checkAnswer() {
+
+            let answer =
+                document.getElementById("answer").value;
+
+            if (answer.toLowerCase() === "69") {
+
+                document.getElementById("result").innerText =
+                    "i knew you'll get it";
+
+                document.getElementById("secret").style.display =
+                    "block";
+            }
+
+            else {
+
+                document.getElementById("result").innerText =
+                    "didn't expect you to forget integration so soon";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
